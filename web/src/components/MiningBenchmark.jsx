@@ -16,6 +16,8 @@ export default function MiningBenchmark() {
     // compilada para WebAssembly. Calcula hashes de verdade, seguindo a
     // especificação exata do algoritmo — só que em JS/WASM é bem mais lento
     // que o núcleo nativo C++ usado no app mobile.
+    // (o vite.config.js redireciona este import para a build de navegador
+    // real do pacote, que usa WebAssembly puro sem depender de fs/os)
     const { randomx_init_cache, randomx_create_vm } = await import('randomx.js');
 
     const cache = randomx_init_cache('multi-miner-web-benchmark-key');
